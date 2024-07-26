@@ -1,0 +1,7 @@
+import pymysql import pymysql.cursors import json from datetime import datetime
+# Function to establish a connection to the database def connect_to_db():
+return pymysql.connect( host='127.0.0.1', user='your_user', password='your_password',
+db='your_schema_name', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor )
+
+
+

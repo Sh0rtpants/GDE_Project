@@ -1,0 +1,19 @@
+Project goal:
+Building a Python frontend and backend stack.
+
+Solution architecture:
+Development language: Python.
+
+Libraries: pymysql, requests, json, flask, Selenium webdriver Distribution type: Private.
+
+General guidelines:
+    ●  Where necessary protect code blocks with error handling ways.
+    ● Each method has to be documented with comments.
+    ● Stick to the specifications document.
+
+** Diagram here **
+
+REST API (module name: rest_app.py):
+The REST API gateway will be: 127.0.0.1:5000/users/<USER_ID>
+1. POST – will accept user_name parameter inside the JSON payload. A new user will be
+    created in the database (Please refer to Database section) with the id passed in the URL
