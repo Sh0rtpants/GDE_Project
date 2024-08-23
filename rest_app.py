@@ -4,12 +4,30 @@ import db_connector
 
 app = Flask(__name__)
 
-@app.route('/get_user/<int:user_id>', methods=['GET'])
-def get(user_id):
+@app.route('/user', methods=['PUT'])
+def create_user():
+    user = request.get_json()
+    user_name = user.get('name', None)
+    db_connector.createRecord(user_name)
+
+
+@app.route('/user/<int:user_id>', methods=['GET'])
+def read_user(user_id):
     db_connector.readRecord(user_id)
 
+
+@app.route('/user/<int:user_id>', methods=['POST'])
+def update_user(user_id):
+    db_connector.updateRecord(user_id)
+
+
+@app.route('/user/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    db_connector.deleteRecord(user_id)
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host="127.0.0.1", port=5501)
 
 
 # from flask import Flask, request, jsonify
